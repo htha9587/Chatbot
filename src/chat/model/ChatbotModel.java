@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 0.1. 10/21/15
+ *version 1.2. 10/21/15
  */
 
 public class ChatbotModel 
@@ -21,7 +21,7 @@ public class ChatbotModel
 	
 	public ChatbotModel(String userName)
 	{
-		
+		this.userName = userName;
 	}
 	
 	private void buildMemesList()
@@ -86,7 +86,7 @@ public class ChatbotModel
 	
 	public String getUserName()
 	{
-		return null;
+		return userName;
 	}
 	
 	/** 

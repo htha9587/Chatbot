@@ -45,7 +45,9 @@ public class ChatbotModel
 		this.memesList.add("Remember remember the 5th of November.");
 		this.memesList.add("Spoderman.");
 	}
-	
+	/**
+	 * A void method that lists Ten memes.
+	 */
 	private void buildPoliticalTopicsList()
 	{
 		
@@ -100,7 +102,17 @@ public class ChatbotModel
 	
 	public boolean memeCheckerContent(String currentInput)
 	{
-		return false;
+		boolean hasMeme = false;
+		
+		for(String meme: memesList)
+		
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+		
+			{
+				hasMeme = true;
+			}
+				
+		return hasMeme = false;
 	}
 	
 	/**

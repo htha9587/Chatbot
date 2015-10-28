@@ -31,10 +31,17 @@ public class ChatbotController
 	
 	private void chat()
 	{
-		String textFromUser = display.collectUserText("Talk to the Chatbot");
+		String textFromUser = display.collectUserText("What do you like?");
 		while(harryBot.lengthChecker(textFromUser))
 		{
-			textFromUser = display.collectUserText("wow " + textFromUser);
+			
+			if(harryBot.contentChecker(textFromUser))
+			{
+				display.displayResponse("Woah, I didn't know you loved " + harryBot.getContent());
+			}
+			
+			
+			textFromUser = display.collectUserText(textFromUser);
 		}
 	}
 	

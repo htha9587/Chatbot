@@ -4,7 +4,8 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.3. 10/23/15
+ *version 1.4. 10/28/15 Built and called buildMemesList Method, repaired getContent Method.
+ *contentChecker complete.
  */
 
 public class ChatbotModel 
@@ -22,14 +23,27 @@ public class ChatbotModel
 	public ChatbotModel(String userName)
 	{
 		this.userName = userName;
-		this.content = "";
+		this.content = "2007 Memes";
 		this.politicalTopicList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
+		
+		buildMemesList();
+		buildPoliticalTopicsList();
+		
 	}
 	
 	private void buildMemesList()
 	{
-	
+		this.memesList.add("Doge");
+		this.memesList.add("Squadala!");
+		this.memesList.add("Mah Boi");
+		this.memesList.add("cute animals");
+		this.memesList.add("M'Lady!");
+		this.memesList.add("Deez Nuts!");
+		this.memesList.add("Pingas!");
+		this.memesList.add("Dolan and Gooby");
+		this.memesList.add("Remember remember the 5th of November.");
+		this.memesList.add("Spoderman.");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -59,7 +73,14 @@ public class ChatbotModel
 	
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
 	}
 	
 	/**
@@ -99,7 +120,7 @@ public class ChatbotModel
 	
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**

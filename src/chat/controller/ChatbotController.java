@@ -5,7 +5,7 @@ import chat.view.ChatbotView;
 import chat.model.ChatbotModel;
 
 /**
- * 10/23/15
+ * 10/30/15
  * @author htha9587
  * Controller class for Chatbot Project.
  */
@@ -37,9 +37,12 @@ public class ChatbotController
 			
 			if(harryBot.contentChecker(textFromUser))
 			{
-				display.displayResponse("Woah, I didn't know you loved " + harryBot.getContent());
+				display.displayResponse("Woah, I didn't know you danked " + harryBot.getContent());
 			}
-			
+			else if(harryBot.memeCheckerContent(textFromUser))
+			{
+				display.displayResponse("The Dankest of Dank.");
+			}
 			
 			textFromUser = display.collectUserText(textFromUser);
 		}

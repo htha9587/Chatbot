@@ -4,14 +4,14 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.4. 10/28/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.5. 10/30/15 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
 public class ChatbotModel 
 {
 	private ArrayList<String> memesList;
-	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> politicalList;
 	private String userName;
 	private String content;
 	
@@ -24,11 +24,11 @@ public class ChatbotModel
 	{
 		this.userName = userName;
 		this.content = "2007 Memes";
-		this.politicalTopicList = new ArrayList<String>();
+		this.politicalList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		
 		buildMemesList();
-		buildPoliticalTopicsList();
+		buildPoliticalList();
 		
 	}
 	
@@ -44,11 +44,12 @@ public class ChatbotModel
 		this.memesList.add("Dolan and Gooby");
 		this.memesList.add("Remember remember the 5th of November.");
 		this.memesList.add("Spoderman.");
+		this.memesList.add("Billy Mays");
 	}
 	/**
 	 * A void method that lists Ten memes.
 	 */
-	private void buildPoliticalTopicsList()
+	private void buildPoliticalList()
 	{
 		
 	}
@@ -90,9 +91,18 @@ public class ChatbotModel
 	 * @return Whether the string is contained in the ArrayList.
 	 */
 	
-	public boolean politicalTopicChecker(String currentInput)
+	public boolean politicalCheckerContent(String currentInput)
 	{
-		return false;
+		boolean hasPolitical = false;
+		
+		for(String political: politicalList)
+		
+		if(currentInput.toLowerCase().contains(political.toLowerCase()))
+		{
+			hasPolitical = true;
+		}
+		
+		return hasPolitical = false;
 	}
 	
 	/**
@@ -112,7 +122,7 @@ public class ChatbotModel
 				hasMeme = true;
 			}
 				
-		return hasMeme = false;
+		return hasMeme;
 	}
 	
 	/**
@@ -149,7 +159,7 @@ public class ChatbotModel
 	 * @return the reference to topic list.
 	 */
 	
-	public ArrayList<String> getPoliticalTopicList()
+	public ArrayList<String> getPoliticalList()
 	{
 		return null;
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.5. 10/30/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.6. 11/02/15 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
@@ -130,6 +130,52 @@ public class ChatbotModel
 	 * @return meme checker instance.
 	 */
 	
+	public String processConversation(String currentInput)
+	{
+		String nextTalk = "Anything else that you like?";
+		int randomTopic = (int) (Math.random() * 5); // Generates a random number between 0 and 4.
+		
+		switch (randomTopic)
+		
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				nextTalk = "You talked about my special topic? Neat! What else?";
+			}
+			break;
+		case 1:
+			if(memeCheckerContent(currentInput))
+			{
+				nextTalk = "What was dank is no longer dank. What else?";
+			}
+			break;
+		case 2:
+			if(politicalCheckerContent(currentInput))
+			{
+				nextTalk = "You know your stuff? What next smart cookie?";
+			}
+			break;
+		case 3:
+			// Chooses own test.
+			if(currentInput.length() > 23)
+			{
+				nextTalk = "Length is old school these days, but nevermind.";
+			}
+			break;
+		case 4:
+			//Random topic.
+			nextTalk = "What about the dankest meme?";
+			break;
+			default:
+				//Never will happen.
+				nextTalk = "How did you get here? You're not supposed to know about default!";
+				break;
+		}
+		
+		return nextTalk;
+	}
+	
 	public String getUserName()
 	{
 		return userName;
@@ -173,4 +219,6 @@ public class ChatbotModel
 	{
 		
 	}
+	
+	
 }

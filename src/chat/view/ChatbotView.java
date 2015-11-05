@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 /**
  * Popup display class for GUI Interaction for Chatbot.
  * @author htha9587
- *version 1.3 10/23/15
+ *version 1.6 11/05/15
  */
 public class ChatbotView 
 {
@@ -25,9 +25,10 @@ public class ChatbotView
 	public String collectUserText(String input) 
 	{
 		String answer = "";
-		answer = JOptionPane.showInputDialog(null, input);
+		answer = JOptionPane.showInputDialog(null, input, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here please!").toString();
 		return answer;
 	}
+	
 /**
  * Displays string to user with standard popup.
  * @param input The supplied text to be shown.

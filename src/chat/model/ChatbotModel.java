@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.6. 11/02/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.7. 11/05/15 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
@@ -14,6 +14,7 @@ public class ChatbotModel
 	private ArrayList<String> politicalList;
 	private String userName;
 	private String content;
+	private String politicalContent;
 	
 	/**
 	 * Creates instances of Chatbot with included username.
@@ -26,6 +27,7 @@ public class ChatbotModel
 		this.content = "2007 Memes";
 		this.politicalList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
+		this.politicalContent = "2016 Election";
 		
 		buildMemesList();
 		buildPoliticalList();
@@ -51,8 +53,24 @@ public class ChatbotModel
 	 */
 	private void buildPoliticalList()
 	{
-		
+		this.politicalList.add("election");
+		this.politicalList.add("democrat");
+		this.politicalList.add("republican");
+		this.politicalList.add("liberal");
+		this.politicalList.add("conservative");
+		this.politicalList.add("Trump");
+		this.politicalList.add("Clinton");
+		this.politicalList.add("Biden");
+		this.politicalList.add("Carson");
+		this.politicalList.add("Rubio");
+		this.politicalList.add("Fiorina");
+		this.politicalList.add("Sanders");
+		this.politicalList.add("vote");
+		this.politicalList.add("11/8/2016");
 	}
+	/**
+	 * A void method that lists 14 Election Topics.
+	 */
 	
 	/**
 	 * Checks string length, returns false if string is empty or null.
@@ -153,7 +171,7 @@ public class ChatbotModel
 		case 2:
 			if(politicalCheckerContent(currentInput))
 			{
-				nextTalk = "You know your stuff? What next smart cookie?";
+				nextTalk = "You know your stuff! What next smart cookie?";
 			}
 			break;
 		case 3:

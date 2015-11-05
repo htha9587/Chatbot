@@ -38,12 +38,16 @@ public class ChatbotController
 			if(harryBot.contentChecker(textFromUser))
 			{
 				display.displayResponse("Woah, I didn't know you danked " + harryBot.getContent());
+				
 			}
 			else if(harryBot.memeCheckerContent(textFromUser))
 			{
 				display.displayResponse("The Dankest of Dank.");
 			}
-			
+			else if(harryBot.politicalCheckerContent(textFromUser))
+			{
+				display.displayResponse("That surely is Interesting!" + harryBot.getPoliticalList());
+			}
 			textFromUser = display.collectUserText(textFromUser);
 		}
 	}

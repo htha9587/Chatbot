@@ -15,6 +15,8 @@ public class ChatbotModel
 	private String userName;
 	private String content;
 	private String politicalContent;
+	private ArrayList<String> keyboardMashChecker;
+	private ArrayList<String> quitChecker;
 	
 	/**
 	 * Creates instances of Chatbot with included username.
@@ -28,6 +30,8 @@ public class ChatbotModel
 		this.politicalList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		this.politicalContent = "2016 Election";
+		this.keyboardMashChecker = new ArrayList<String>();
+		this.quitChecker = new ArrayList<String>();
 		
 		buildMemesList();
 		buildPoliticalList();
@@ -68,6 +72,55 @@ public class ChatbotModel
 		this.politicalList.add("vote");
 		this.politicalList.add("11/8/2016");
 	}
+	
+	
+	
+	public ArrayList<String> KeyboardMashChecker() {
+		return keyboardMashChecker;
+	}
+
+	public void keyboardMashChecker(ArrayList<String> keyboardMashChecker) {
+		this.keyboardMashChecker = keyboardMashChecker;
+	}
+
+	public ArrayList<String> QuitChecker() {
+		return quitChecker;
+	}
+
+	public void quitChecker(ArrayList<String> quitChecker) {
+		this.quitChecker = quitChecker;
+	}
+
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasLength = false;
+	
+	if(currentInput != null)
+	{
+		if(currentInput.length() >= 1)
+		{
+			hasLength = true;
+		}
+	}
+	
+	return hasLength;
+	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean hasLength = false;
+	
+	if(currentInput != null)
+	{
+		if(currentInput.length() >= 1)
+		{
+			hasLength = true;
+		}
+	}
+	
+	return hasLength;
+	}
+
 	/**
 	 * A void method that lists 14 Election Topics.
 	 */
@@ -240,3 +293,4 @@ public class ChatbotModel
 	
 	
 }
+

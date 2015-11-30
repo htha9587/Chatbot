@@ -3,23 +3,30 @@ package chat.controller;
 
 import chat.view.ChatbotView;
 import chat.model.ChatbotModel;
-
+import chat.view.ChatbotFrame;
 /**
- * 10/30/15
+ * 11/05/15
  * @author htha9587
  * Controller class for Chatbot Project.
+ * Version 1.2
  */
 public class ChatbotController 
 {
 	private ChatbotView display;
+	
 	private ChatbotModel harryBot;
 	
+	private ChatbotFrame baseFrame;
 	
+	
+
+
 	public ChatbotController()
 	{
 		display = new ChatbotView();
 		String user = display.collectUserText("What is your name?");
 		harryBot = new ChatbotModel(user);
+		baseFrame = new ChatbotFrame(this);
 	}
 	
 	
@@ -50,6 +57,22 @@ public class ChatbotController
 			}
 			textFromUser = display.collectUserText(textFromUser);
 		}
+		
+		
+	}
+	public ChatbotView getChatbotView() 
+	{
+		return display;
+	}
+
+
+	public ChatbotModel getChatbotModel() 
+	{
+		return harryBot;
 	}
 	
+	public ChatbotFrame getBaseFrame() 
+	{
+		return baseFrame;
+	}
 }

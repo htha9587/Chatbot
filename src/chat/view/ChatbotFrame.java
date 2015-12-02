@@ -32,7 +32,7 @@ public class ChatbotFrame extends JFrame
 	{
 		this.setContentPane(basePanel); ///Required for GUI Frame.
 		this.setResizable(false); //Optional.
-		this.setTitle("GUI Practice App"); //Sets title.
+		this.setTitle("Chatbot 9000000000"); //Sets title.
 		this.setSize(400,400);				//Sets size.
 		this.setVisible(true); 				//Last line in method.
 	}

@@ -8,7 +8,7 @@ import chat.view.ChatbotFrame;
  * 11/05/15
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 1.2
+ * Version 1.3
  */
 public class ChatbotController 
 {
@@ -33,7 +33,7 @@ public class ChatbotController
 	public void start()
 	{
 		display.displayResponse("Hello " + harryBot.getUserName());
-		chat();
+		//chat();
 	}
 	
 	private void chat()
@@ -41,25 +41,32 @@ public class ChatbotController
 		String textFromUser = display.collectUserText("What do you like?");
 		while(harryBot.lengthChecker(textFromUser))
 		{
-			
-			if(harryBot.contentChecker(textFromUser))
-			{
-				display.displayResponse("Woah, I didn't know you danked " + harryBot.getContent());
-				
-			}
-			else if(harryBot.memeCheckerContent(textFromUser))
-			{
-				display.displayResponse("The Dankest of Dank.");
-			}
-			else if(harryBot.politicalCheckerContent(textFromUser))
-			{
-				display.displayResponse("That surely is Interesting!" + harryBot.getPoliticalList());
-			}
+		
 			textFromUser = display.collectUserText(textFromUser);
+			textFromUser = harryBot.processConversation(textFromUser);
+			
+		}
+		
+}
+	
+	
+	public String fromUserToChatbot(String textFromUser)
+	{
+		String botResponse = "";
+		
+		if(harryBot.quitChecker(textFromUser))
+		{
+			shutDown();
 		}
 		
 		
+		botResponse = harryBot.processConversation(textFromUser);
+		
+		return botResponse;
 	}
+	
+	
+	
 	public ChatbotView getChatbotView() 
 	{
 		return display;
@@ -75,4 +82,11 @@ public class ChatbotController
 	{
 		return baseFrame;
 	}
+	
+	private void shutDown()
+	{
+		display.displayResponse("Goodbye " + harryBot.getUserName() + "it has been a pleasure to talk with you.");
+		System.exit(0);
+	}
+	
 }

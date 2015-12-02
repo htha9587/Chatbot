@@ -106,20 +106,7 @@ public class ChatbotModel
 	return hasLength;
 	}
 	
-	public boolean keyboardMashChecker(String currentInput)
-	{
-		boolean hasLength = false;
 	
-	if(currentInput != null)
-	{
-		if(currentInput.length() >= 1)
-		{
-			hasLength = true;
-		}
-	}
-	
-	return hasLength;
-	}
 
 	/**
 	 * A void method that lists 14 Election Topics.
@@ -201,10 +188,28 @@ public class ChatbotModel
 	 * @return meme checker instance.
 	 */
 	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean isMash = false;
+		
+		if(currentInput.equals("sdf")  || currentInput.equals(",./") || currentInput.equals("dfg") || currentInput.equals("cvb"))
+				{
+					isMash = true;
+				}
+		return isMash;
+	}
+	
 	public String processConversation(String currentInput)
 	{
 		String nextTalk = "Anything else that you like?";
 		int randomTopic = (int) (Math.random() * 5); // Generates a random number between 0 and 4.
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Don't mash my keys!";
+		}
+		
+		
 		
 		switch (randomTopic)
 		

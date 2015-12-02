@@ -35,9 +35,13 @@ public class ChatbotPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new JButton("Chatbot's button.");
+		
 		firstTextField = new JTextField("Please type here");
+		
 		firstTextArea = new JTextArea("I'm an area!");
+		
 		firstLabel = new JLabel("Talk to Chatbot");
+		
 		
 		
 		setUpPanel();
@@ -56,6 +60,8 @@ public class ChatbotPanel extends JPanel
 		this.add(firstTextField);
 		this.add(firstTextArea);
 		this.add(firstLabel);
+		firstTextArea.setEnabled(false);
+		
 		
 		
 		firstTextField.setToolTipText("Logic test");
@@ -66,7 +72,14 @@ public class ChatbotPanel extends JPanel
 	
 	private void setUpLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 134, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 10, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstTextArea, -230, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 93, SpringLayout.SOUTH, firstTextArea);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextArea, 155, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 37, SpringLayout.EAST, firstLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstLabel, 6, SpringLayout.NORTH, firstTextField);
+		baseLayout.putConstraint(SpringLayout.WEST, firstLabel, 10, SpringLayout.WEST, this);
 	}
 	
 	private void setUpListeners()
@@ -76,6 +89,12 @@ public class ChatbotPanel extends JPanel
 					public void actionPerformed(ActionEvent click)
 					{
 						firstTextField.setText("Hi ho!");
+					    String userText = firstTextField.getText(); //Grab user text.   x
+						String response = baseController.fromUserToChatbot(userText); //Displays user text.  x
+						firstTextArea.append("\nUser: " + userText); //Gives Text to model for processing.   x
+						firstTextArea.append("\nChatbot: " + response); //Gets and displays answer.          x
+						firstTextField.setText(""); //Clears user field.   x
+						
 					}
 					
 	});

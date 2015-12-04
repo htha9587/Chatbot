@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.4. 12/02/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.5. 12/04/15 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
@@ -47,7 +47,7 @@ public class ChatbotModel
 		this.memesList.add("Pingas!");
 		this.memesList.add("Dolan and Gooby");
 		this.memesList.add("Remember remember the 5th of November.");
-		this.memesList.add("Spoderman.");
+		this.memesList.add("Spoderman");
 		this.memesList.add("Billy Mays");
 	}
 	/**
@@ -62,6 +62,7 @@ public class ChatbotModel
 		this.politicalList.add("conservative");
 		this.politicalList.add("Trump");
 		this.politicalList.add("Clinton");
+		this.politicalList.add("Scott Walker");
 		this.politicalList.add("Biden");
 		this.politicalList.add("Carson");
 		this.politicalList.add("Rubio");
@@ -137,7 +138,7 @@ public class ChatbotModel
 			hasPolitical = true;
 		}
 		
-		return hasPolitical = false;
+		return hasPolitical;
 	}
 	
 	/**
@@ -176,10 +177,33 @@ public class ChatbotModel
 		return isMash;
 	}
 	
+	/**
+	 * Chatbot checks for whether or not you are typing Keyboard mashing.
+	 */
+	
+	
+	/**
+	 * Processes conversation between end user and Chatbot.
+	 * @param currentInput
+	 * @return
+	 */
 	public String processConversation(String currentInput)
 	{
 		String nextTalk = "Anything else that you like?";
 		int randomTopic = (int) (Math.random() * 5); // Generates a random number between 0 and 4.
+		
+		if(memeCheckerContent(currentInput))
+		{
+			return "The Dankest of Dank.";
+		}
+		
+		if(politicalCheckerContent(currentInput))
+		{
+			return "That surely is Interesting! ";
+		}
+		
+		
+		
 		
 		if(keyboardMashChecker(currentInput))
 		{
@@ -188,43 +212,47 @@ public class ChatbotModel
 		
 		
 		
-		switch (randomTopic)
 		
-		{
-		case 0:
-			if(contentChecker(currentInput))
-			{
-				nextTalk = "You talked about my special topic? Neat! What else?";
-			}
-			break;
-		case 1:
-			if(memeCheckerContent(currentInput))
-			{
-				nextTalk = "What was dank is no longer dank. What else?";
-			}
-			break;
-		case 2:
-			if(politicalCheckerContent(currentInput))
-			{
-				nextTalk = "You know your stuff! What next smart cookie?";
-			}
-			break;
-		case 3:
-			// Chooses own test.
-			if(currentInput.length() > 23)
-			{
-				nextTalk = "Length is old school these days, but nevermind.";
-			}
-			break;
-		case 4:
-			//Random topic.
-			nextTalk = "What about the dankest meme?";
-			break;
-			default:
-				//Never will happen.
-				nextTalk = "How did you get here? You're not supposed to know about default!";
-				break;
-		}
+		/**
+		 * Switchcase for topics.
+		 */
+//		switch (randomTopic)
+//		
+//		{
+//		case 0:
+//			if(contentChecker(currentInput))
+//			{
+//				nextTalk = "You talked about my special topic? Neat! What else?";
+//			}
+//			break;
+//		case 1:
+//			if(memeCheckerContent(currentInput))
+//			{
+//				nextTalk = "What was dank is no longer dank. What else?";
+//			}
+//			break;
+//		case 2:
+//			if(politicalCheckerContent(currentInput))
+//			{
+//				nextTalk = "You know your stuff! What next smart cookie?";
+//			}
+//			break;
+//		case 3:
+//			// Chooses own test.
+//			if(currentInput.length() > 23)
+//			{
+//				nextTalk = "Length is old school these days, but nevermind.";
+//			}
+//			break;
+//		case 4:
+//			//Random topic.
+//			nextTalk = "What about the dankest meme?";
+//			break;
+//			default:
+//				//Never will happen.
+//				nextTalk = "How did you get here? You're not supposed to know about default!";
+//				break;
+//		}
 		
 		return nextTalk;
 	}

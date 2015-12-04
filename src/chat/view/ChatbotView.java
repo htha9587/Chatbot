@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 /**
  * Popup display class for GUI Interaction for Chatbot.
  * @author htha9587
- *version 1.4 12/02/15
+ *version 1.5 12/04/15
  *Added Icon to popup.
  */
 public class ChatbotView 
@@ -20,7 +20,7 @@ public class ChatbotView
 	public ChatbotView()
 	
 	{
-		windowMessage = "This message brught to you by Senior Chatbot.";
+		windowMessage = "This message brought to you by Senior Chatbot.";
 		chatIcon = new ImageIcon(getClass().getResource("images/Chatbot90000000000000.jpg"));
 	}
 	public String collectUserText(String input) 

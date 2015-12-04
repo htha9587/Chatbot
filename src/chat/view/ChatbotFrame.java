@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 import chat.controller.ChatbotController;
 /**
  * Creates JFrame GUI for Chatbot GUI.
- * Version 1.4
+ * Version 1.5
  * @author htha9587
- *12-02-15 Added GUI Reference.
+ *12-04-15 Added GUI Reference.
  */
 
 

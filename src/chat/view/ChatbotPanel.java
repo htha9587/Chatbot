@@ -14,9 +14,9 @@ import chat.controller.ChatbotController;
 import java.awt.Color;
 
 /**
- * 12-02-15
+ * 12-04-15
  * 
- * @author htha9587 Version 1.4
+ * @author htha9587 Version 1.5
  */
 public class ChatbotPanel extends JPanel {
 	private ChatbotController baseController;
@@ -31,7 +31,7 @@ public class ChatbotPanel extends JPanel {
 		baseLayout = new SpringLayout();
 		firstButton = new JButton("Chatbot's button.");
 
-		firstTextField = new JTextField("Please type here");
+		firstTextField = new JTextField("Please type here",20);
 
 		firstTextArea = new JTextArea("I'm an area!");
 
@@ -90,7 +90,7 @@ public class ChatbotPanel extends JPanel {
 					{
 					public void actionPerformed(ActionEvent click)
 					{
-						firstTextField.setText("Hi ho!");
+						
 					    String userText = firstTextField.getText(); //Grab user text.   x
 						String response = baseController.fromUserToChatbot(userText); //Displays user text.  x
 						firstTextArea.append("\nUser: " + userText); //Gives Text to model for processing.   x
@@ -101,12 +101,14 @@ public class ChatbotPanel extends JPanel {
 					
 	});
 		
-			
+		/**
+		 * Checks for mouse  to change window color.	
+		 */
 			this.addMouseListener(new MouseListener()
 			{
 				public void mouseClicked(MouseEvent clicked)
 				{
-//			changeRandomColor();
+		changeRandomColor();
 				if(SwingUtilities.isLeftMouseButton(clicked))
 				{
 					
@@ -120,7 +122,7 @@ public class ChatbotPanel extends JPanel {
 			
 			public void mouseReleased(MouseEvent released)
 			{
-				changeRandomColor();
+	//			changeRandomColor();
 			}
 			
 			public void mousePressed(MouseEvent pressed)
@@ -129,7 +131,7 @@ public class ChatbotPanel extends JPanel {
 			}
 			public void mouseEntered(MouseEvent entered)
 			{
-				changeRandomColor();
+		//		changeRandomColor();
 			}
 			
 			public void mouseExited(MouseEvent exited)
@@ -138,7 +140,9 @@ public class ChatbotPanel extends JPanel {
 			}
 		});
 	
-	
+	/**
+	 * Checks for mouse motion to change color.
+	 */
 			this.addMouseMotionListener(new MouseMotionListener()
 			{
 				public void mouseMoved(MouseEvent moved)
@@ -155,6 +159,9 @@ public class ChatbotPanel extends JPanel {
 				}
 			});
 		}
+	/**
+	 * Changes color randomly when mouse is clicked.
+	 */
 			private void changeRandomColor()
 			{
 				int red, green, blue;

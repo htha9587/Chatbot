@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.7. 11/05/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.4. 12/02/15 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
@@ -15,8 +15,7 @@ public class ChatbotModel
 	private String userName;
 	private String content;
 	private String politicalContent;
-	private ArrayList<String> keyboardMashChecker;
-	private ArrayList<String> quitChecker;
+	
 	
 	/**
 	 * Creates instances of Chatbot with included username.
@@ -30,8 +29,7 @@ public class ChatbotModel
 		this.politicalList = new ArrayList<String>();
 		this.memesList = new ArrayList<String>();
 		this.politicalContent = "2016 Election";
-		this.keyboardMashChecker = new ArrayList<String>();
-		this.quitChecker = new ArrayList<String>();
+		
 		
 		buildMemesList();
 		buildPoliticalList();
@@ -40,7 +38,7 @@ public class ChatbotModel
 	
 	private void buildMemesList()
 	{
-		this.memesList.add("Doge");
+		this.memesList.add("doge");
 		this.memesList.add("Squadala!");
 		this.memesList.add("Mah Boi");
 		this.memesList.add("cute animals");
@@ -58,8 +56,8 @@ public class ChatbotModel
 	private void buildPoliticalList()
 	{
 		this.politicalList.add("election");
-		this.politicalList.add("democrat");
-		this.politicalList.add("republican");
+		this.politicalList.add("Democrat");
+		this.politicalList.add("Republican");
 		this.politicalList.add("liberal");
 		this.politicalList.add("conservative");
 		this.politicalList.add("Trump");
@@ -70,40 +68,19 @@ public class ChatbotModel
 		this.politicalList.add("Fiorina");
 		this.politicalList.add("Sanders");
 		this.politicalList.add("vote");
-		this.politicalList.add("11/8/2016");
+		this.politicalList.add("11/4/16");
 	}
 	
-	
-	
-	public ArrayList<String> KeyboardMashChecker() {
-		return keyboardMashChecker;
-	}
-
-	public void keyboardMashChecker(ArrayList<String> keyboardMashChecker) {
-		this.keyboardMashChecker = keyboardMashChecker;
-	}
-
-	public ArrayList<String> QuitChecker() {
-		return quitChecker;
-	}
-
-	public void quitChecker(ArrayList<String> quitChecker) {
-		this.quitChecker = quitChecker;
-	}
 
 	public boolean quitChecker(String currentInput)
 	{
-		boolean hasLength = false;
+		boolean hasQuit = false;
 	
-	if(currentInput != null)
+	if(currentInput.equals("quit"))
 	{
-		if(currentInput.length() >= 1)
-		{
-			hasLength = true;
-		}
+		hasQuit = true;
 	}
-	
-	return hasLength;
+	return hasQuit;
 	}
 	
 	
@@ -273,7 +250,7 @@ public class ChatbotModel
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -283,7 +260,7 @@ public class ChatbotModel
 	
 	public ArrayList<String> getPoliticalList()
 	{
-		return null;
+		return politicalList;
 	}
 	
 	/**
@@ -293,7 +270,7 @@ public class ChatbotModel
 	
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
 	
 	

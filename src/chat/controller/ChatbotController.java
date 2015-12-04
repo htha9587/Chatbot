@@ -5,10 +5,10 @@ import chat.view.ChatbotView;
 import chat.model.ChatbotModel;
 import chat.view.ChatbotFrame;
 /**
- * 11/05/15
+ * 12/02/15
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 1.3
+ * Version 1.4
  */
 public class ChatbotController 
 {
@@ -35,6 +35,7 @@ public class ChatbotController
 		display.displayResponse("Hello " + harryBot.getUserName());
 		//chat();
 	}
+	//Starts the program.
 	
 	private void chat()
 	{
@@ -63,6 +64,7 @@ public class ChatbotController
 		botResponse = harryBot.processConversation(textFromUser);
 		
 		return botResponse;
+		//Gets data from user to Chatbot.
 	}
 	
 	
@@ -85,8 +87,8 @@ public class ChatbotController
 	
 	private void shutDown()
 	{
-		display.displayResponse("Goodbye " + harryBot.getUserName() + "it has been a pleasure to talk with you.");
+		display.displayResponse("Goodbye " + harryBot.getUserName() + " it has been a pleasure to talk with you.");
 		System.exit(0);
 	}
-	
+	//Exits the program.
 }

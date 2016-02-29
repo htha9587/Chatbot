@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 1.5. 12/04/15 Built and called buildMemesList Method, repaired getContent Method.
+ *version 1.6. 2/29/16 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 

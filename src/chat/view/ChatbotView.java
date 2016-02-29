@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 /**
  * Popup display class for GUI Interaction for Chatbot.
  * @author htha9587
- *version 1.5 12/04/15
+ *version 1.6 2/29/16
  *Added Icon to popup.
  */
 public class ChatbotView 

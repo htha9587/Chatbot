@@ -2,11 +2,12 @@ package chat.view;
 
 import javax.swing.JFrame;
 import chat.controller.ChatbotController;
+
 /**
  * Creates JFrame GUI for Chatbot GUI.
- * Version 1.5
+ * Version 1.6
  * @author htha9587
- *12-04-15 Added GUI Reference.
+ *2-29-16 Added GUI Reference.
  */
 
 

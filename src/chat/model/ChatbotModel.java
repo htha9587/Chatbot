@@ -202,16 +202,10 @@ public class ChatbotModel
 			return "That surely is Interesting! ";
 		}
 		
-		
-		
-		
 		if(keyboardMashChecker(currentInput))
 		{
 			return "Don't mash my keys!";
 		}
-		
-		
-		
 		
 		/**
 		 * Switchcase for topics.

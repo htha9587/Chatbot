@@ -4,12 +4,15 @@ import chat.view.ChatbotView;
 import chat.model.ChatbotModel;
 import chat.model.CTECTwitter;
 import chat.view.ChatbotFrame;
+
 import java.io.*;
+
+import javax.swing.JOptionPane;
 /**
- * 2/29/1
+ * 3/8/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 1.6
+ * Version 1.8
  */
 public class ChatbotController 
 {
@@ -30,6 +33,7 @@ public class ChatbotController
 		String user = display.collectUserText("What is your name?");
 		harryBot = new ChatbotModel(user);
 		baseFrame = new ChatbotFrame(this);
+		myTwitter = new CTECTwitter(this);
 	}
 	
 	public void start()
@@ -96,6 +100,8 @@ public class ChatbotController
 	public String fromChatbottoTwitter(String input)
 	{
 		String result = "";
+		JOptionPane.showMessageDialog(this.baseFrame, "Sending your Tweet! ");
+		myTwitter.sendTweet("");
 		
 		return result;
 	}

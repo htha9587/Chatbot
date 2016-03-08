@@ -3,7 +3,6 @@ package chat.model;
 import chat.model.*;
 import chat.view.*;
 import chat.controller.*;
-
 import java.lang.*;
 import java.util.*;
 import java.io.*;
@@ -13,8 +12,8 @@ import java.io.*;
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 1.7
- * 3-4-16
+ * Version 1.8
+ * 3-8-16
  * @author htha9587
  *
  */
@@ -25,10 +24,11 @@ public class CTECTwitter
 	private Twitter chatbotTwitter;
 	private List<Status> statuses;
 	private List<String> tweetTexts;
+	private ChatbotController baseController;
 	
-	
-	public CTECTwitter()
+	public CTECTwitter(ChatbotController baseController)
 	{
+		this.baseController = baseController;
 		chatbotTwitter = TwitterFactory.getSingleton();
 		statuses = new ArrayList<Status>();
 		tweetTexts = new ArrayList<String>();
@@ -43,10 +43,11 @@ public class CTECTwitter
 	public void sendTweet(String tweet)
 	{
 		try {
-			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSROCKS @CTECNow Thanks @ cscheerleader & @codyhenrichsen!");
+			chatbotTwitter.updateStatus("Harry just tweeted from my Java Chatbot program! #APCSROCKS @CTECNow Thanks @ cscheerleader & @codyhenrichsen!");
 		} catch (twitter4j.TwitterException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 	}
 	

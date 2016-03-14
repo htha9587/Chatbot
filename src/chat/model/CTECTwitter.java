@@ -3,17 +3,19 @@ package chat.model;
 import chat.model.*;
 import chat.view.*;
 import chat.controller.*;
+
 import java.lang.*;
 import java.util.*;
+import java.awt.Component;
 import java.io.*;
 
-
+import javax.swing.JOptionPane;
 
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 1.8
- * 3-8-16
+ * Version 1.9
+ * 3-14-16
  * @author htha9587
  *
  */
@@ -21,10 +23,12 @@ import twitter4j.*; // Add core jar to buildpath.
 
 public class CTECTwitter 
 {
+	private static final String Listener = null;
 	private Twitter chatbotTwitter;
 	private List<Status> statuses;
 	private List<String> tweetTexts;
 	private ChatbotController baseController;
+	private Component baseFrame;
 	
 	public CTECTwitter(ChatbotController baseController)
 	{
@@ -51,12 +55,100 @@ public class CTECTwitter
 		}
 	}
 	
-
+	public void searchTweet(String tweet)
+	{
+		if (tweet.length() < 1)
+		{
+			try {
+				chatbotTwitter.updateStatus("java twitter4J.examples.search.searchTweets [query]");
+			} catch (TwitterException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		Twitter twitter = new TwitterFactory().getInstance();
+		try
+		{
+			Query query = new Query("");
+			QueryResult result;
+			do
+			{
+				result = twitter.search(query);
+				List<Status> tweets = result.getTweets();
+				for (Status tweet1 : tweets)
+				{
+					JOptionPane.showMessageDialog(null, "@" + tweet1.getUser().getScreenName() + "-" + tweet1.getText(), null, 0);
+				}
+			}while ((query = result.nextQuery()) != null);
+			}	catch (TwitterException te)
+					{
+						te.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Failed to search for tweets: " + te.getMessage(), tweet, 0);
+					}
+			finally
+			{
+				
+			}
+	}
+	
 	private void updateStatus(String string) 
 	{
-		
+		Twitter twitter = TwitterFactory.getSingleton();
+		String latestStatus = null;
+		try {
+			Status status = twitter.updateStatus(latestStatus);
+		} catch (TwitterException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JOptionPane.showMessageDialog(this.baseFrame, "Updating Status!");
 		
 	}
+
+	private void getHomeTimeline(String tweet)
+	{
+		Twitter twitter = new TwitterFactory().getInstance();
+		try {
+			User user = twitter.verifyCredentials();
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			List <Status> statuses = twitter.getHomeTimeline();
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (Status status : statuses)
+		{
+			JOptionPane.showMessageDialog(this.baseFrame, "@" + status.getUser().getScreenName() + "-" + status.getText());
+		}
+	}
+
+
+	private void APIStream(String [] args) throws TwitterException, IOException 
+	{
+	String twitterException = new TwitterException("").getExceptionCode();
+	}
+	
+		public void onStatus(Status status)
+		{
+			JOptionPane.showMessageDialog(baseFrame, status.getUser().getName() + ":" + status.getText(), null, 0, null);
+		}	
+		
+		public void onTrackLimitationNotice(int numberofLimitedStatuses)
+		{
+			
+		}
+		
+		public void onException(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
 
 	/**
 	 * Makes stats about tweets.
@@ -136,7 +228,6 @@ public class CTECTwitter
 					count--;
 					removeSpot = boringWords.length; // Exit inner loop.
 				}
-			
 		}
 		//In order to keep usernames in wordlist.
 		removeTwitterUsernamesFromList(wordList);
@@ -144,7 +235,6 @@ public class CTECTwitter
 		return wordList;
 		
 	}
-
 	/**
 	 * Reads commonWords.txt and imports supplied words to a String.
 	 * array to be excluded from the results.

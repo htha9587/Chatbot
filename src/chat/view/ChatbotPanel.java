@@ -16,9 +16,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * 3-8-16
+ * 3-14-16
  * 
- * @author htha9587 Version 1.8
+ * @author htha9587 Version 1.9
  */
 public class ChatbotPanel extends JPanel {
 	private ChatbotController baseController;
@@ -54,8 +54,13 @@ public class ChatbotPanel extends JPanel {
 		setUpListeners();
 		setUpListenersTwitter();
 		setUpListenersSave();
+		setUpListenersLoad();
 		
 	}
+
+
+
+	
 
 
 
@@ -178,8 +183,24 @@ public class ChatbotPanel extends JPanel {
 					
 					
 				});
+				}
 				
+					private void setUpListenersLoad() 
+					{
+						fileLoad.addActionListener(new ActionListener()
+						{
+							public void actionPerformed(ActionEvent click)
+							{
+								String userText = chatArea.getText();
+								baseController.bufferedReader(userText);
+								chatArea.append("\nUser: " + userText);
+								firstTextField.setText("");
+							}
+						});
+						
+						
 					
+				
 		
 		/**
 		 * Checks for mouse  to change window color.	

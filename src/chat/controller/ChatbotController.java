@@ -9,10 +9,10 @@ import java.io.*;
 
 import javax.swing.JOptionPane;
 /**
- * 3/8/16
+ * 3/14/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 1.8
+ * Version 1.9
  */
 public class ChatbotController 
 {
@@ -26,6 +26,7 @@ public class ChatbotController
 	private FileReader fileReader;
 	private BufferedReader bufferedReader;
 	private String path;
+	private String file;
 
 	public ChatbotController()
 	{
@@ -109,7 +110,7 @@ public class ChatbotController
 /**
  * Writes text to a file, and reads from said file.
  */
-	public void bufferedWriter(String userText)
+	public void bufferedWriter(String input)
 	{
 		String fileName = "ChatbotFile.txt "; //Filename.
 		
@@ -118,7 +119,7 @@ public class ChatbotController
 			FileWriter fileWriter = new FileWriter(fileName);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.write("Want me to save something of our conversation? ");
-			bufferedWriter.write(userText);
+			bufferedWriter.write(input);
 			bufferedWriter.newLine();
 			bufferedWriter.write("Watch as I save to a file! ");
 			
@@ -133,46 +134,44 @@ public class ChatbotController
 		
 	}
 	
-	public void ReadFile (String file_path)
+	/**
+	 * Reads created file when load file button is pressed in the GUI.
+	 * @param userText
+	 */
+	
+	public void bufferedReader(String input)
 	{
-		path = file_path;
+		BufferedReader bufferedReader = null;
+		
+		try
+		{
+			File file = new File("ChatbotFile.txt");
+			bufferedReader = new BufferedReader(new FileReader(file));
+		}
+		
+		catch (IOException ex)
+		
+		{
+			ex.printStackTrace();
+		}
+		
+		finally
+		{
+			try 
+			{
+				bufferedReader.close();
+			}
+			catch(IOException ex)
+			{
+				ex.printStackTrace();
+			}
+		}
+		
 	}
 	
-	public String[] OpenFile() throws IOException
+	public void openFile()
 	{
-		FileReader fr = new FileReader(path);
-		BufferedReader textReader = new BufferedReader(fr);
-		
-		int numberOfLines = 3;
-		String[] textData = new String[numberOfLines];
-		
-		int i;
-		
-		for (i=0; i < numberOfLines; i++)
-		{
-			textData[i] = textReader.readLine();
-		}
-		
-		textReader.close();
-		return textData;
-		
-	}
-		
-	int readLines() throws IOException
-	{
-		FileReader file_to_read = new FileReader(path);
-		BufferedReader bf = new BufferedReader(file_to_read);
-		
-		String aLine;
-		int numberOfLines = 0;
-		
-		while ((aLine = bf.readLine()) != null) 
-		{
-			numberOfLines++;
-		}
-		bf.close();
-		
-		return numberOfLines;
+		display.displayResponse("Opening our conversation!");
 	}
 	
 	

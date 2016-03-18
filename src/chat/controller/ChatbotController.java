@@ -8,11 +8,13 @@ import chat.view.ChatbotFrame;
 import java.io.*;
 
 import javax.swing.JOptionPane;
+
+import twitter4j.TwitterException;
 /**
- * 3/14/16
+ * 3/18/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 1.9
+ * Version 2.0
  */
 public class ChatbotController 
 {
@@ -139,7 +141,7 @@ public class ChatbotController
 	 * @param userText
 	 */
 	
-	public void bufferedReader(String input)
+	public void bufferedReader(String twitterHandle) throws TwitterException
 	{
 		BufferedReader bufferedReader = null;
 		

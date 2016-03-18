@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 1.9
- * 3-14-16
+ * Version 2.0
+ * 3-18-16
  * @author htha9587
  *
  */
@@ -27,6 +27,7 @@ public class CTECTwitter
 	private Twitter chatbotTwitter;
 	private List<Status> statuses;
 	private List<String> tweetTexts;
+	private List<String> userList;
 	private ChatbotController baseController;
 	private Component baseFrame;
 	
@@ -165,12 +166,16 @@ public class CTECTwitter
 	
 	/**
 	 * Loads 200 tweets from Twitter user to a status list and List.
+	 * @throws FileNotFoundException 
 	 * @oaram twitterHandle user being searched.
 	 * @throws twitterException.
 	 */
 	
-	public void loadTweets(String twitterHandle) throws TwitterException 
+	public void loadTweets(String twitterHandle) throws TwitterException, FileNotFoundException 
 	{
+		statuses.clear();
+		List<Status> wordList = null;
+		wordList.clear();
 		Paging statusPage = new Paging(1, 200);
 		int page = 1;
 		while (page <= 10)
@@ -190,8 +195,8 @@ public class CTECTwitter
 		removeCommonEnglishWords(tweetTexts);
 		removeEmptyText();
 		
-		
 	}
+	 
 	
 	/**
 	 * Removes empty text entries from list.
@@ -211,11 +216,12 @@ public class CTECTwitter
 	/**
 	 * Removes all words in commonWords.txt from parameter wordlist.
 	 * @param wordList
+	 * @throws FileNotFoundException 
 	 * @returm list after common words have been removed.
 	 */
 	
 	@SuppressWarnings("unchecked")
-	private List<String> removeCommonEnglishWords(List<String> wordList)
+	private List<String> removeCommonEnglishWords(List<String> wordList) throws FileNotFoundException
 	{
 		String[] boringWords = importWordstoArray();
 		
@@ -240,32 +246,25 @@ public class CTECTwitter
 	 * array to be excluded from the results.
 	 * @return array of strings to ignore from the results.
 	 */
-	private String[] importWordstoArray()
+	private String[] importWordstoArray() throws FileNotFoundException
 	{
 		String[] boringWords;
 		int wordCount = 0;
-		try
+		Scanner wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
+		while (wordFile.hasNext())
 		{
-			Scanner wordFile = new Scanner(new File("commonWords.txt"));
-			while (wordFile.hasNext())
-			{
-				wordCount ++;
-				wordFile.next();
-			}
-			wordFile.reset();
-			boringWords = new String[wordCount];
-			int boringWordCount = 0;
-			while (wordFile.hasNext())
-			{
-				boringWords[boringWordCount] = wordFile.next();
-				boringWordCount ++;
-			}
-			wordFile.close();
+			wordCount ++;
+			wordFile.next();
 		}
-		catch (FileNotFoundException e)
+		wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
+		boringWords = new String[wordCount];
+		int boringWordCount = 0;
+		while (wordFile.hasNext())
 		{
-			return new String[0];
+			boringWords[boringWordCount] = wordFile.next();
+			boringWordCount ++;
 		}
+		wordFile.close();
 		return boringWords;
 		}
 	

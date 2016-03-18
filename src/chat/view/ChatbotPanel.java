@@ -2,23 +2,20 @@ package chat.view;
 
 import java.awt.event.*;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseMotionListener;
-
 import javax.swing.*;
+
+import twitter4j.TwitterException;
 import chat.controller.ChatbotController;
+
 import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * 3-14-16
+ * 3-18-16
  * 
- * @author htha9587 Version 1.9
+ * @author htha9587 Version 2.0
  */
 public class ChatbotPanel extends JPanel {
 	private ChatbotController baseController;
@@ -192,7 +189,12 @@ public class ChatbotPanel extends JPanel {
 							public void actionPerformed(ActionEvent click)
 							{
 								String userText = chatArea.getText();
-								baseController.bufferedReader(userText);
+								try {
+									baseController.bufferedReader(userText);
+								} catch (TwitterException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 								chatArea.append("\nUser: " + userText);
 								firstTextField.setText("");
 							}

@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 
 import twitter4j.TwitterException;
 /**
- * 3/18/16
+ * 3/22/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 2.0
+ * Version 2.2
  */
 public class ChatbotController 
 {

@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 2.0
- * 3-18-16
+ * Version 2.2
+ * 3-22-16
  * @author htha9587
  *
  */

@@ -23,9 +23,9 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 3-18-16
+ * 3-22-16
  * 
- * @author htha9587 Version 2.0
+ * @author htha9587 Version 2.2
  */
 public class ChatbotPanel extends JPanel {
 	protected static final User List = null;

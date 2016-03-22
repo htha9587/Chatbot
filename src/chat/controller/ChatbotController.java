@@ -114,7 +114,7 @@ public class ChatbotController
  */
 	public void bufferedWriter(String input)
 	{
-		String fileName = "ChatbotFile.txt "; //Filename.
+		String fileName = "ChatbotFile.txt"; //Filename.
 		
 		try 
 		{
@@ -127,6 +127,8 @@ public class ChatbotController
 			
 			//Closes file.
 			bufferedWriter.close();
+			
+			this.display.displayResponse("Saved! Check Workspace!");
 			
 		}
 		catch (IOException ex)
@@ -141,14 +143,26 @@ public class ChatbotController
 	 * @param userText
 	 */
 	
-	public void bufferedReader(String twitterHandle) throws TwitterException
+	public String bufferedReader()
 	{
 		BufferedReader bufferedReader = null;
+		
+		String fileContents = "";
 		
 		try
 		{
 			File file = new File("ChatbotFile.txt");
 			bufferedReader = new BufferedReader(new FileReader(file));
+
+
+			this.display.displayResponse("Opened!");
+			String currentLine = "";
+			while ((currentLine = bufferedReader.readLine()) != null)
+			{
+				fileContents += currentLine + "\n";
+			}
+
+			this.display.displayResponse("Read!");
 		}
 		
 		catch (IOException ex)
@@ -168,6 +182,8 @@ public class ChatbotController
 				ex.printStackTrace();
 			}
 		}
+		
+		return fileContents;
 		
 	}
 	

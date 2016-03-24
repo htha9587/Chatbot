@@ -14,7 +14,7 @@ import twitter4j.TwitterException;
  * 3/24/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 2.3
+ * Version 2.4
  */
 public class ChatbotController 
 {
@@ -62,7 +62,11 @@ public class ChatbotController
 		}
 		
 }
-	
+	/**
+	 * Starts chat method.
+	 * @param textFromUser
+	 * @return
+	 */
 	
 	public String fromUserToChatbot(String textFromUser)
 	{
@@ -101,6 +105,12 @@ public class ChatbotController
 		return baseFrame;
 	}
 	
+	/**
+	 * Sends tweet to Twitter.
+	 * @param input
+	 * @return
+	 */
+	
 	public String fromChatbottoTwitter(String input)
 	{
 		String result = "";
@@ -109,6 +119,12 @@ public class ChatbotController
 		
 		return result;
 	}
+	
+	/**
+	 * Searches for tweets and returns results.
+	 * @param input
+	 * @return
+	 */
 	
 	public String chatbotTwitterSearch(String input)
 	{
@@ -198,6 +214,10 @@ public class ChatbotController
 		return fileContents;
 		
 	}
+	
+	/**
+	 * Displays at the top when reading file in chatPane.
+	 */
 	
 	public void openFile()
 	{

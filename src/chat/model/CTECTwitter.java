@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 2.3
+ * Version 2.4
  * 3-24-16
  * @author htha9587
  *
@@ -56,6 +56,11 @@ public class CTECTwitter
 		}
 	}
 	
+	/**
+	 * Searches for tweets of a string type.
+	 * @param tweet
+	 */
+	
 	public void searchTweet(String tweet)
 	{
 		if (tweet.length() < 1)
@@ -93,6 +98,10 @@ public class CTECTwitter
 			}
 	}
 	
+	/**
+	 * Updates status.
+	 * @param string
+	 */
 	private void updateStatus(String string) 
 	{
 		Twitter twitter = TwitterFactory.getSingleton();
@@ -108,6 +117,10 @@ public class CTECTwitter
 		
 	}
 
+	/**
+	 * Gets home timeline.
+	 * @param tweet
+	 */
 	private void getHomeTimeline(String tweet)
 	{
 		Twitter twitter = new TwitterFactory().getInstance();
@@ -129,6 +142,13 @@ public class CTECTwitter
 		}
 	}
 
+	
+	/**
+	 * Looks for APIStream.
+	 * @param args
+	 * @throws TwitterException
+	 * @throws IOException
+	 */
 
 	private void APIStream(String [] args) throws TwitterException, IOException 
 	{
@@ -169,6 +189,13 @@ public class CTECTwitter
 	 * @throws FileNotFoundException 
 	 * @oaram twitterHandle user being searched.
 	 * @throws twitterException.
+	 */
+	
+	/**
+	 * Loads ten JavaFX related tweets.
+	 * @param twitterHandle
+	 * @throws TwitterException
+	 * @throws FileNotFoundException
 	 */
 	
 	public void loadTweets(String twitterHandle) throws TwitterException, FileNotFoundException 

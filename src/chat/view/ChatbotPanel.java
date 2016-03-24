@@ -21,6 +21,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.awt.Font;
 
 /**
  * 3-24-16
@@ -47,7 +48,7 @@ public class ChatbotPanel extends JPanel {
 	public ChatbotPanel(ChatbotController baseController) {
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		firstButton = new JButton("Chatbot's button.");
+		firstButton = new JButton("Chatbot's Button");
 		firstTextField = new JTextField("Please type here",20);
 		firstTextArea = new JTextArea("I'm an area!");
 		fileSave = new JButton("Save to File ");
@@ -57,6 +58,7 @@ public class ChatbotPanel extends JPanel {
 		baseLayout.putConstraint(SpringLayout.NORTH, fileLoad, 0, SpringLayout.NORTH, firstButton);
 		baseLayout.putConstraint(SpringLayout.EAST, fileLoad, -1, SpringLayout.WEST, fileSave);
 		chatArea = new JTextArea(10,25);
+		chatArea.setFont(new Font("Calibri", Font.BOLD, 16));
 		
 		
 		setUpChatPane();
@@ -76,7 +78,7 @@ public class ChatbotPanel extends JPanel {
 		chatArea.setWrapStyleWord(true);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
-		chatArea.setBackground(Color.RED);
+		chatArea.setBackground(new Color(204, 0, 0));
 		chatPane = new JScrollPane(chatArea);
 		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 6, SpringLayout.SOUTH, chatPane);
 		chatPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -127,6 +129,10 @@ public class ChatbotPanel extends JPanel {
 		 */
 	}
 
+	/**
+	 * Sets up layout of all features in the GUI.
+	 */
+	
 	private void setUpLayout() {
 		baseLayout.putConstraint(SpringLayout.SOUTH, firstTextArea, -230,
 				SpringLayout.SOUTH, this);
@@ -144,6 +150,11 @@ public class ChatbotPanel extends JPanel {
 		 */
 	}
 
+	/**
+	 * Main listener method.
+	 */
+	
+	
 	private void setUpListeners()
 	{
 			firstButton.addActionListener(new ActionListener()
@@ -160,6 +171,9 @@ public class ChatbotPanel extends JPanel {
 					
 	}); }
 			
+	/**
+	 * Action event listener for sending tweet to Twitter.
+	 */
 	private void setUpListenersTwitter() 
 	{
 		tweetButton.addActionListener(new ActionListener()
@@ -177,6 +191,10 @@ public class ChatbotPanel extends JPanel {
 		});	
 	}
 		
+	/**
+	 * Action event listener for displaying JavaFX topic tweets and adding them to the conversation.
+	 */
+	
 	private void setUpListenersTwitterSearch() 
 	{
 		searchTwitterButton.addActionListener(new ActionListener()
@@ -192,7 +210,9 @@ public class ChatbotPanel extends JPanel {
 		});
 		
 	}
-			
+			/**
+			 * Action event listener for saving conversation as a txt file.
+			 */
 				private void setUpListenersSave() 
 				{
 					fileSave.addActionListener(new ActionListener()
@@ -209,7 +229,10 @@ public class ChatbotPanel extends JPanel {
 				});
 				}
 				
-					private void setUpListenersLoad() 
+			/**
+			 * Action event listener for loading and displaying conversation file in chatPane.
+			 */
+				private void setUpListenersLoad() 
 					{
 						fileLoad.addActionListener(new ActionListener()
 						{

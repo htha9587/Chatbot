@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Makes up the framework for the Chatbot program.
  * @author htha9587
- *version 2.3. 3/24/16 Built and called buildMemesList Method, repaired getContent Method.
+ *version 2.4. 3/24/16 Built and called buildMemesList Method, repaired getContent Method.
  *contentChecker complete.
  */
 
@@ -46,7 +46,7 @@ public class ChatbotModel
 		this.memesList.add("Deez Nuts!");
 		this.memesList.add("Pingas!");
 		this.memesList.add("Dolan and Gooby");
-		this.memesList.add("Remember remember the 5th of November.");
+		this.memesList.add("Remember remember the 5th of November");
 		this.memesList.add("Spoderman");
 		this.memesList.add("Billy Mays");
 	}

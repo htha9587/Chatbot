@@ -23,9 +23,9 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 3-22-16
+ * 3-24-16
  * 
- * @author htha9587 Version 2.2
+ * @author htha9587 Version 2.3
  */
 public class ChatbotPanel extends JPanel {
 	protected static final User List = null;
@@ -41,8 +41,8 @@ public class ChatbotPanel extends JPanel {
 	private JTextField searchTweetsTextField;
 	Twitter twitter;
 	private JLabel label;
-	private JButton button;
-	private JButton button_1;
+	private JButton searchTwitterButton;
+	private JButton tweetButton;
 
 	public ChatbotPanel(ChatbotController baseController) {
 		this.baseController = baseController;
@@ -64,16 +64,11 @@ public class ChatbotPanel extends JPanel {
 		setUpLayout();
 		setUpListeners();
 		setUpListenersTwitter();
+		setUpListenersTwitterSearch();
 		setUpListenersSave();
 		setUpListenersLoad();
 		
 	}
-
-
-
-	
-
-
 
 	private void setUpChatPane() 
 	{
@@ -113,15 +108,15 @@ public class ChatbotPanel extends JPanel {
 		label.setToolTipText("Testing!");
 		add(label);
 		
-		button = new JButton("Search Twitter");
-		baseLayout.putConstraint(SpringLayout.NORTH, button, 6, SpringLayout.SOUTH, firstButton);
-		baseLayout.putConstraint(SpringLayout.EAST, button, -46, SpringLayout.EAST, this);
-		add(button);
+		searchTwitterButton = new JButton("Search Twitter");
+		baseLayout.putConstraint(SpringLayout.NORTH, searchTwitterButton, 6, SpringLayout.SOUTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.EAST, searchTwitterButton, -46, SpringLayout.EAST, this);
+		add(searchTwitterButton);
 		
-		button_1 = new JButton("Send to Twitter ");
-		baseLayout.putConstraint(SpringLayout.NORTH, button_1, 0, SpringLayout.NORTH, button);
-		baseLayout.putConstraint(SpringLayout.EAST, button_1, -6, SpringLayout.WEST, button);
-		add(button_1);
+		tweetButton = new JButton("Send to Twitter ");
+		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, searchTwitterButton);
+		baseLayout.putConstraint(SpringLayout.EAST, tweetButton, -6, SpringLayout.WEST, searchTwitterButton);
+		add(tweetButton);
 		
 		
 		
@@ -167,7 +162,7 @@ public class ChatbotPanel extends JPanel {
 			
 	private void setUpListenersTwitter() 
 	{
-		button_1.addActionListener(new ActionListener()
+		tweetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -181,7 +176,22 @@ public class ChatbotPanel extends JPanel {
 			
 		});	
 	}
-			
+		
+	private void setUpListenersTwitterSearch() 
+	{
+		searchTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = firstTextField.getText();
+				String response = baseController.chatbotTwitterSearch(userText);
+				chatArea.append("\nUser: " + userText);
+				chatArea.append("\nUser: " + response);
+				firstTextField.setText("");
+			}
+		});
+		
+	}
 			
 				private void setUpListenersSave() 
 				{

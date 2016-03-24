@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 import twitter4j.*; // Add core jar to buildpath.
 
 /**
- * Version 2.2
- * 3-22-16
+ * Version 2.3
+ * 3-24-16
  * @author htha9587
  *
  */
@@ -68,14 +68,14 @@ public class CTECTwitter
 			}
 		}
 		
-		Twitter twitter = new TwitterFactory().getInstance();
+		//Twitter twitter = new TwitterFactory().getInstance();
 		try
 		{
-			Query query = new Query("");
+			Query query = new Query("JavaFX");
 			QueryResult result;
 			do
 			{
-				result = twitter.search(query);
+				result = chatbotTwitter.search(query);
 				List<Status> tweets = result.getTweets();
 				for (Status tweet1 : tweets)
 				{
@@ -308,17 +308,17 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("marathon");
-		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.MILES);
+		Query query = new Query("JavaFX");
+		query.setCount(10);
+		//query.setGeoCode(new GeoLocation(40.587521, -111.869178), 500, Query.MILES);
 		query.setSince("2016-1-1");
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results.concat("Count : " + result.getTweets().size());
+			results += "Count : " + result.getTweets().size() + "\n";
 			for (Status tweet : result.getTweets())
 			{
-				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
 			}
 		}
 		

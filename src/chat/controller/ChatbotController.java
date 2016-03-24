@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 
 import twitter4j.TwitterException;
 /**
- * 3/22/16
+ * 3/24/16
  * @author htha9587
  * Controller class for Chatbot Project.
- * Version 2.2
+ * Version 2.3
  */
 public class ChatbotController 
 {
@@ -34,9 +34,10 @@ public class ChatbotController
 	{
 		display = new ChatbotView();
 		String user = display.collectUserText("What is your name?");
+		myTwitter = new CTECTwitter(this);
 		harryBot = new ChatbotModel(user);
 		baseFrame = new ChatbotFrame(this);
-		myTwitter = new CTECTwitter(this);
+	
 	}
 	
 	public void start()
@@ -108,6 +109,17 @@ public class ChatbotController
 		
 		return result;
 	}
+	
+	public String chatbotTwitterSearch(String input)
+	{
+		String result = "";
+		JOptionPane.showMessageDialog(this.baseFrame, "Searching... ");
+		result = myTwitter.sampleInvestigaton();
+		
+		return result;
+	}
+	
+	
 	
 /**
  * Writes text to a file, and reads from said file.

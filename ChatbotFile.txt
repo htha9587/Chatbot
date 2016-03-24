@@ -1,42 +1,41 @@
 Want me to save something of our conversation? 
 User: sdf
 Chatbot: Don't mash my keys!
-User: 
+User: dolan and gooby
+Chatbot: The Dankest of Dank.
+User: billy mays
+Chatbot: The Dankest of Dank.
+User: spoderman 
+Chatbot: The Dankest of Dank.
+User: mah boi
+Chatbot: The Dankest of Dank.
+User: remember remember the fifth of november.
+Chatbot: Anything else that you like?
+User: remember remember the 5th of november.
+Chatbot: The Dankest of Dank.
+User: scott walker
+Chatbot: That surely is Interesting! 
+User: fiorina
+Chatbot: That surely is Interesting! 
+User: 11/4/16
+Chatbot: That surely is Interesting! 
+User: hgf
 Chatbot: Anything else that you like?
 User: 
-Chatbot: Anything else that you like?
-User: Scott Walker
-Chatbot: That surely is Interesting! 
-User: Spoderman
-Chatbot: The Dankest of Dank.
-User: Pingas!
-Chatbot: The Dankest of Dank.
-User: Clinton
-Chatbot: That surely is Interesting! 
-User: Cruz
-Chatbot: Anything else that you like?
-User: M'lady!
-Chatbot: The Dankest of Dank.
-User: Billy Mays
-Chatbot: The Dankest of Dank.
-User: Sanders
-Chatbot: That surely is Interesting! 
-User: dfg
-Chatbot: Don't mash my keys!
-User: cvb
-Chatbot: Don't mash my keys!
-User: election
-Chatbot: That surely is Interesting! 
-User: Democrat
-Chatbot: That surely is Interesting! 
-User: Republican
-Chatbot: That surely is Interesting! 
-User: Mah Boi
-Chatbot: The Dankest of Dank.
-User: 
-Chatbot: Anything else that you like?
-User: 
-Chatbot: Anything else that you like?
-User: 
-User: 
+User: Count : 10
+@David Gilbert: RT @javafx3d: If you are looking for a great open source #JavaFX 3D visualization library https://t.co/HgycYEa0qE https://t.co/CuhNZxeNKJ
+@DELORME Loïc: RT @javafx3d: If you are looking for a great open source #JavaFX 3D visualization library https://t.co/HgycYEa0qE https://t.co/CuhNZxeNKJ
+@Carl Dea: RT @javafx3d: If you are looking for a great open source #JavaFX 3D visualization library https://t.co/HgycYEa0qE https://t.co/CuhNZxeNKJ
+@ちの: javaFXで一日全部潰した人の顔してる
+@Rèmi-Lèkoun: RT @javaDeveloppez: Apprendre les concepts de base de #JavaFX au travers d'un exemple, par RomainNV XebiaFr https://t.co/XRxBvsFT1q
+@Mr. Lorbeere: Die Grundfunktionen der Kommunikation steht. Jetzt heißt es nur noch entzerren, Methoden bauen und später die UI anknüpfen. #sopra #javafx
+@Rahaman M: #JavaFx StackedBarChart not order after categories
+#Tech #Internet #Programming
+https://t.co/b426VeHlxE
+@Micheal Hartwig: #JavaFx StackedBarChart not order after categories
+#HowTo #Question #Tech
+https://t.co/mFkl4Og3lm
+@Live on Livecodingtv: Watch Now! "McLauncher improving with JavaFX" https://t.co/d5WYyIVkvw #software #dev #Java @yeoupooh
+@Thomas Jinwoo Min: Watch Now! "McLauncher improving with JavaFX" https://t.co/Oz6mRkvmFO #programming #tech #Java @nowlivecodingtv
+
 Watch as I save to a file! 

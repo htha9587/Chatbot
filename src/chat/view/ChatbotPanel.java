@@ -35,7 +35,7 @@ public class ChatbotPanel extends JPanel {
 	private JButton fileSave;
 	private JButton fileLoad;
 	private JTextField firstTextField;
-	private JTextArea firstTextArea;
+	
 	private SpringLayout baseLayout;
 	private JScrollPane chatPane;
 	private JTextArea chatArea;
@@ -50,7 +50,7 @@ public class ChatbotPanel extends JPanel {
 		baseLayout = new SpringLayout();
 		firstButton = new JButton("Chatbot's Button");
 		firstTextField = new JTextField("Please type here",20);
-		firstTextArea = new JTextArea("I'm an area!");
+		
 		fileSave = new JButton("Save to File ");
 		baseLayout.putConstraint(SpringLayout.NORTH, fileSave, 0, SpringLayout.NORTH, firstButton);
 		baseLayout.putConstraint(SpringLayout.EAST, fileSave, -1, SpringLayout.WEST, firstButton);
@@ -96,34 +96,23 @@ public class ChatbotPanel extends JPanel {
 		this.add(fileLoad);
 		this.add(chatPane);
 		this.add(firstTextField);
-		this.add(firstTextArea);
-		
-		firstTextArea.setEnabled(false);
 		firstTextField.setToolTipText("Logic test");
-		firstTextArea.setToolTipText("Mr Test");
-		firstTextArea.setToolTipText("Mimick Test");
-		
 		label = new JLabel("Talk to Chatbot");
 		baseLayout.putConstraint(SpringLayout.NORTH, label, 5, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, label, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, label, -9, SpringLayout.NORTH, chatPane);
 		label.setToolTipText("Testing!");
 		add(label);
-		
 		searchTwitterButton = new JButton("Search Twitter");
 		baseLayout.putConstraint(SpringLayout.NORTH, searchTwitterButton, 6, SpringLayout.SOUTH, firstButton);
 		baseLayout.putConstraint(SpringLayout.EAST, searchTwitterButton, -46, SpringLayout.EAST, this);
 		add(searchTwitterButton);
-		
 		tweetButton = new JButton("Send to Twitter ");
 		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, searchTwitterButton);
 		baseLayout.putConstraint(SpringLayout.EAST, tweetButton, -6, SpringLayout.WEST, searchTwitterButton);
 		add(tweetButton);
 		
-		
-		
-		
-		
+	
 		/**
 		 * Sets up Chatbot panel.
 		 */
@@ -134,8 +123,7 @@ public class ChatbotPanel extends JPanel {
 	 */
 	
 	private void setUpLayout() {
-		baseLayout.putConstraint(SpringLayout.SOUTH, firstTextArea, -230,
-				SpringLayout.SOUTH, this);
+		
 		baseLayout.putConstraint(SpringLayout.NORTH, chatPane, 30, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 100, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatPane, 250, SpringLayout.NORTH, this);
@@ -143,8 +131,6 @@ public class ChatbotPanel extends JPanel {
 		baseLayout.putConstraint(SpringLayout.EAST, firstButton, 0, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 0, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, firstTextField, 0, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstTextArea, 150,
-				SpringLayout.WEST, this);
 		/**
 		 * Sets Layout.
 		 */

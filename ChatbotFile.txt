@@ -1,4 +1,4 @@
-Want me to save something of our conversation? 
+Want me to save something of our conversation? Want me to save something of our conversation? 
 User: sdf
 Chatbot: Don't mash my keys!
 User: dolan and gooby
@@ -37,5 +37,7 @@ https://t.co/b426VeHlxE
 https://t.co/mFkl4Og3lm
 @Live on Livecodingtv: Watch Now! "McLauncher improving with JavaFX" https://t.co/d5WYyIVkvw #software #dev #Java @yeoupooh
 @Thomas Jinwoo Min: Watch Now! "McLauncher improving with JavaFX" https://t.co/Oz6mRkvmFO #programming #tech #Java @nowlivecodingtv
+
+Watch as I save to a file! 
 
 Watch as I save to a file! 
